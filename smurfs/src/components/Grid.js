@@ -1,20 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getSmurfs } from "../actions";
 import Smurf from './Smurf';
 
 function Grid (props) {
 
-    console.log("Grid props:", props);
-    const fetchSmurfs = e => {
-        e.preventDefault();
+    useEffect(() => {
         props.getSmurfs();
-        console.log("");
-    }
+    }, [props.data])
 
     return (
         <>
-        <button onClick={fetchSmurfs}>Get Smurfs</button>
         {props.isFetching && <p className="fetching">Fetching...</p>}
         {props.data && 
         <div className="grid">

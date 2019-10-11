@@ -4,10 +4,14 @@ import Grid from './Grid';
 
 export default function App (props) {
   return (
-    <div>
-      <h1>SMURF VILLAGE</h1>
-      <Form />
-      <Grid />
+    <div className="app">
+      <div className="left">
+        <h1>SMURF VILLAGE</h1>
+        <Form />
+      </div>
+      <div className="right">
+        <Grid />
+      </div>
     </div>
   );
 }
