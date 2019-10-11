@@ -1,7 +1,7 @@
 import {FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE } from '../actions';
 
 const initialState = [{
-    date: [],
+    date: [{"name":"Brainey","age":200,"height":"5cm","id":0}],
     isFetching: false,
     error: ''
 }];
@@ -9,25 +9,31 @@ const initialState = [{
 const smurfReducer = (state = initialState, action) => {
     switch(action.type) {
         case FETCH_SMURFS_START:
-            return {
+            const startState = {
                 ...state,
                 isFetching: true,
                 error: ''
             };
+            console.log("New startState:", startState);
+            return startState;
         case FETCH_SMURFS_SUCCESS:
-            return {
+            const successState = {
                 ...state,
                 data: action.payload,
                 isFetching: false,
                 error: ''
             };
+            console.log("New successState:", successState);
+            return successState;
         case FETCH_SMURFS_FAILURE:
-            return {
+            const failState = {
                 ...state,
                 data: '',
                 isFetching: false,
                 error: action.payload
             };
+            console.log("New failState:", failState);
+            return failState;
         default: 
         return state;
     }
